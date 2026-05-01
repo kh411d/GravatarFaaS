@@ -1,1 +1,4 @@
 gravatarfaas
+.DS_Store
+*.log
+*.env
