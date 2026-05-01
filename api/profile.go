@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func Handler(w http.ResponseWriter, r *http.Request) {
+func Profile(w http.ResponseWriter, r *http.Request) {
 	apiKey := strings.TrimSpace(os.Getenv("GRAVATAR_API_KEY"))
 	if apiKey == "" {
 		http.Error(w, "GRAVATAR_API_KEY environment variable is required", http.StatusInternalServerError)

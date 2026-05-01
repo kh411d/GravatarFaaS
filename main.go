@@ -14,7 +14,7 @@ func main() {
 		log.Fatal("GRAVATAR_API_KEY environment variable is required")
 	}
 
-	http.HandleFunc("/profile/", api.Handler)
+	http.HandleFunc("/profile/", api.Profile)
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
