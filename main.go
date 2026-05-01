@@ -1,7 +1,7 @@
 package main
 
 import (
-	"gravatarfaas/api/gravatar"
+	"gravatarfaas/api"
 	"log"
 	"net/http"
 	"os"
@@ -14,7 +14,7 @@ func main() {
 		log.Fatal("GRAVATAR_API_KEY environment variable is required")
 	}
 
-	http.HandleFunc("/profile/", gravatar.Handler)
+	http.HandleFunc("/profile/", api.Handler)
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "3000"
