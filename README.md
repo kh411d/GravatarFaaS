@@ -7,15 +7,15 @@ This service exposes a public HTTP endpoint and forwards requests to the Gravata
 
 ### Endpoints
 
-- **Local development**: `GET /gravatar/{profileIdentifier}` on `http://localhost:8080`
-- **Vercel deployment**: `GET /api/gravatar/{profileIdentifier}`
+- **Local development**: `GET /profile` on `http://localhost:3000`
+- **Vercel deployment**: `GET /api/profile`
 
 ### Local Development
 
 ```bash
-export GRAVATAR_API_KEY="your_gravatar_api_key"
+export GRAVATAR_API_KEY="your_gravatar_api_key" GRAVATAR_PROFILE_ID="your_gravatar_profile_id"
 go run main.go
-curl http://localhost:8080/gravatar/205e460b479e2e5b48aec07710c08d50
+curl http://localhost:3000/profile
 ```
 
 ### Vercel Deployment
@@ -33,11 +33,12 @@ curl http://localhost:8080/gravatar/205e460b479e2e5b48aec07710c08d50
 3. Set environment variable:
    ```bash
    vercel env add GRAVATAR_API_KEY
+   vercel env add GRAVATAR_PROFILE_ID
    ```
 
 4. Access the deployed function:
    ```bash
-   curl https://your-project.vercel.app/api/gravatar/205e460b479e2e5b48aec07710c08d50
+   curl https://your-project.vercel.app/api/profile
    ```
 
 ### Build
@@ -49,6 +50,6 @@ go build -o gravatarfaas
 ### Run
 
 ```bash
-export GRAVATAR_API_KEY="your_gravatar_api_key"
+export GRAVATAR_API_KEY="your_gravatar_api_key" GRAVATAR_PROFILE_ID="your_gravatar_profile_id"
 ./gravatarfaas
 ```
