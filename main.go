@@ -15,6 +15,9 @@ func main() {
 	}
 
 	http.HandleFunc("/profile/", gravatar.Handler)
-	addr := ":3000"
-	http.ListenAndServe(addr, nil)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
+	http.ListenAndServe(":"+port, nil)
 }
